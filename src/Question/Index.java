@@ -3,6 +3,7 @@ package Question;
 import java.util.Objects;
 
 public class Index {
+
     int row, column;
 
     public Index(final int row, final int column) {
