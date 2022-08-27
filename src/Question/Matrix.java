@@ -50,16 +50,6 @@ public class Matrix {
         return list;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
-        for (int[] row : primitiveMatrix) {
-            stringBuilder.append(Arrays.toString(row));
-            stringBuilder.append("\n");
-        }
-        return stringBuilder.toString();
-    }
-
     public int getValue(final Index index) {
         return primitiveMatrix[index.row][index.column];
     }
@@ -73,6 +63,16 @@ public class Matrix {
 
     public final int[][] getPrimitiveMatrix() {
         return primitiveMatrix;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int[] row : primitiveMatrix) {
+            stringBuilder.append(Arrays.toString(row));
+            stringBuilder.append("\n");
+        }
+        return stringBuilder.toString();
     }
 
     public static void main(String[] args) {

@@ -2,7 +2,9 @@ package Question;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * This class uses the Adapter pattern, a.k.a Wrapper/Decorator,
@@ -45,6 +47,16 @@ public class MatrixAdapter implements Graph<Index> {
 
     @Override
     public Collection<Node<Index>> getReachableNodes(Node<Index> node) {
+        if (matrix.getValue(node.getData()) == 1) {
+            List<Node<Index>> reachableNodes = new ArrayList<>();
+            for (Index neighbor : matrix.getNeighbors(node.getData())) {
+                if (matrix.getValue(neighbor) == 1) {
+                    Node<Index> reachableNode = new Node<>(neighbor, node);
+                    reachableNodes.add(reachableNode);
+                }
+            }
+            return reachableNodes;
+        }
         return null;
     }
 }
