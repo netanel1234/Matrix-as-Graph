@@ -28,7 +28,7 @@ public class MatrixAdapter implements Graph<Index> {
         this.matrix = matrix;
     }
 
-    public Index getSource() {
+    public Index getSource(Index index) {
         return source;
     }
 

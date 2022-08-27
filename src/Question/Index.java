@@ -26,9 +26,6 @@ public class Index {
 
     @Override
     public String toString() {
-        return "Index{" +
-                "row=" + row +
-                ", column=" + column +
-                '}';
+        return "(" + row +", " + column + ")";
     }
 }
