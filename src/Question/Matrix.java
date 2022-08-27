@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Matrix {
 
-    int[][] primitiveMAtrix;
+    int[][] primitiveMatrix;
 
     public Matrix(int[][] oArray) {
         List<int[]> list = new ArrayList<>();
@@ -12,15 +12,15 @@ public class Matrix {
             int[] clone = row.clone();
             list.add(clone);
         }
-        primitiveMAtrix = list.toArray(new int[0][]);
+        primitiveMatrix = list.toArray(new int[0][]);
     }
 
     public Matrix(int numOfRows, int numOfColumns) {
         Random r = new Random();
-        primitiveMAtrix = new int[numOfRows][numOfColumns];
+        primitiveMatrix = new int[numOfRows][numOfColumns];
         for (int i = 0; i < numOfRows; i++) {
             for (int j = 0; j < numOfColumns; j++) {
-                primitiveMAtrix[i][j] = r.nextInt(2);
+                primitiveMatrix[i][j] = r.nextInt(2);
             }
         }
     }
@@ -31,19 +31,19 @@ public class Matrix {
         int extracted = -1;
 
         try {
-            extracted = primitiveMAtrix[index.row + 1][index.column];
+            extracted = primitiveMatrix[index.row + 1][index.column];
             list.add(new Index(index.row + 1, index.column));
         } catch (ArrayIndexOutOfBoundsException ignored) {}
         try {
-            extracted = primitiveMAtrix[index.row][index.column + 1];
+            extracted = primitiveMatrix[index.row][index.column + 1];
             list.add(new Index(index.row, index.column + 1));
         } catch (ArrayIndexOutOfBoundsException ignored) {}
         try {
-            extracted = primitiveMAtrix[index.row - 1][index.column];
+            extracted = primitiveMatrix[index.row - 1][index.column];
             list.add(new Index(index.row - 1, index.column));
         } catch (ArrayIndexOutOfBoundsException ignored) {}
         try {
-            extracted = primitiveMAtrix[index.row][index.column - 1];
+            extracted = primitiveMatrix[index.row][index.column - 1];
             list.add(new Index(index.row, index.column - 1));
         } catch (ArrayIndexOutOfBoundsException ignored) {}
 
@@ -53,7 +53,7 @@ public class Matrix {
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        for (int[] row : primitiveMAtrix) {
+        for (int[] row : primitiveMatrix) {
             stringBuilder.append(Arrays.toString(row));
             stringBuilder.append("\n");
         }
@@ -61,18 +61,18 @@ public class Matrix {
     }
 
     public int getValue(final Index index) {
-        return primitiveMAtrix[index.row][index.column];
+        return primitiveMatrix[index.row][index.column];
     }
 
     public void printMatrix() {
-        for (int[] row : primitiveMAtrix) {
+        for (int[] row : primitiveMatrix) {
             String s = Arrays.toString(row);
             System.out.println(s);
         }
     }
 
-    public final int[][] getPrimitiveMAtrix() {
-        return primitiveMAtrix;
+    public final int[][] getPrimitiveMatrix() {
+        return primitiveMatrix;
     }
 
     public static void main(String[] args) {

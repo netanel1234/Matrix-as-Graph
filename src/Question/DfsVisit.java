@@ -30,6 +30,8 @@ public class DfsVisit<T> {
         Set<T> blackSet = new LinkedHashSet<>();
         for (Node<T> node : finished)
             blackSet.add(node.getData());
+        /** We clear the Set represents the 'finished' Nodes just in case we wnt to traverse() from another Node in the graph */
+        finished.clear();
         return blackSet;
     }
 }
